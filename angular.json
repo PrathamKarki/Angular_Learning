@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "learn_angular": {
+    "HRM": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -30,7 +30,9 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+
             ]
           },
           "configurations": {
@@ -61,10 +63,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "learn_angular:build:production"
+              "buildTarget": "HRM:build:production"
             },
             "development": {
-              "buildTarget": "learn_angular:build:development"
+              "buildTarget": "HRM:build:development"
             }
           },
           "defaultConfiguration": "development"

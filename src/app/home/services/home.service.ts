@@ -1,15 +1,16 @@
-import { TestBed } from '@angular/core/testing';
-import { HomeService } from './home.serivce.spec';
- 
-describe('HomeService', () => {
-  let service: HomeService;
+import { Service } from '@angular/core';
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(HomeService);
-  });
+@Service()
+export class HomeService {
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+    sum(a: number, b: number): number {
+        return a + b;
+    }
+
+    getDataFromLoginPage(): string {
+        // Api call logic
+        let data = 'Data from backend';
+
+        return data;
+    }
+}

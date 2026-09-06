@@ -1,6 +1,6 @@
 import { CurrencyPipe, DatePipe, LowerCasePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { DoublePipe } from '../pipes/double-pipe';
+import { DoublePipe } from '../pipes/double-pipe.spec'
 
 @Component({
   imports: [DatePipe, CurrencyPipe, LowerCasePipe, DoublePipe],

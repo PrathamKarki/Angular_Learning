@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, effect, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
-import { HomeService } from './services/home.service';
+import { HomeService } from '../home/services/home.service';
 
 @Component({
   imports: [RouterOutlet],

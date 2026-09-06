@@ -1,14 +1,16 @@
-import { Component, signal } from '@angular/core';
+import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { Home } from '../home/home'
 
 @Component({
-  imports: [FormsModule],
+  imports: [FormsModule, Home],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
 })
 export class App {
+  @ViewChild('TestCheckboxTemp') tempCheckbox: ElementRef<HTMLInputElement> | undefined;
   protected readonly title = signal('HRM');
 
   header: string = "App Component";
@@ -24,12 +26,18 @@ export class App {
 
   dothis: string = this.isChecked ? "True" : "false"; // ischecked
 
-  changeCheckbox(value: boolean): string {
-    this.isChecked2.set(false);
+  changeCheckbox() {
+    // this.isChecked2.set(false);
 
-    this.isChecked = !this.isChecked;
-    this.isChecked = value;
-    this.dothis = this.isChecked ? "True" : "false"
-    return "";
+    // this.isChecked = !this.isChecked;
+    // // this.isChecked = value;
+    // this.dothis = this.isChecked ? "True" : "false"
+    // return "";
+    // this.isChecked = <boolean>this.tempCheckbox?.nativeElement.checked;
+    console.log("Reached");
+  }
+
+  handleChildEvent(value: string) {
+    this.header = value;
   }
 }

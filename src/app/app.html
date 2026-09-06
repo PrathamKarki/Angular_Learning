@@ -2,22 +2,32 @@
 <br>
 
 <div class="container">
-    <!-- One way binding -->
-    <!-- String Interpolation -->
+    <!--Oneway binding -->
+    <!--String Interpolation -->
     <span>{{ secondTitle }}</span>
     <hr>
     <!-- One way binding -->
-    <input type="checkbox" id="TestCheckbox" [(checked)]="isChecked">
+    <input type="checkbox" id="TestCheckbox" [checked]="isChecked">
     <label for="TestCheckbox">First Checkbox</label>
     <br>
-    <!-- Two way binding -->
-    <input type="checkbox" id="TestCheckbox2" #xyz [(ngModel)]="isChecked">
+    <!--Two way binding -->
+    <input type="checkbox" id="TestCheckbox2" [(ngModel)]="isChecked">
     <label for="TestCheckbox2">Second Checkbox</label>
     <br>
-    <!-- Two way binding -- Template Referencing-->
-    <input type="checkbox" id="TestCheckbox2" #TestCheckboxTemp 
-    (change)="changeCheckbox(TestCheckboxTemp.checked)">
+    <!---- Template Referencing-->
+    <input type="checkbox" id="TestCheckbox2" #TestCheckboxTemp>
     <label for="TestCheckbox2">Second Checkbox</label>
     <br>
     {{ isChecked }}
+    <br>
+    <input type="text" [value]="isChecked" (input)="changeCheckbox()">
 </div>
+<hr>
+<div class="container">
+    <app-home 
+    [parentValue]="isChecked"
+    (childEvent)="handleChildEvent($event)"
+    ></app-home>
+</div>
+<hr>
+<p class="text-center"></p>

@@ -1,33 +1,47 @@
-<h1 class="text-primary text-center">{{ header }}</h1>
-<br>
-
-<div class="container">
-    <!--Oneway binding -->
-    <!--String Interpolation -->
-    <span>{{ secondTitle }}</span>
+<div>
+    <input type="checkbox" [(ngModel)]="showField"><br>
+    <button class="btn btn-info text-white" *ngIf="showField">
+        Submit
+    </button>
     <hr>
-    <!-- One way binding -->
-    <input type="checkbox" id="TestCheckbox" [checked]="isChecked">
-    <label for="TestCheckbox">First Checkbox</label>
-    <br>
-    <!--Two way binding -->
-    <input type="checkbox" id="TestCheckbox2" [(ngModel)]="isChecked">
-    <label for="TestCheckbox2">Second Checkbox</label>
-    <br>
-    <!---- Template Referencing-->
-    <input type="checkbox" id="TestCheckbox2" #TestCheckboxTemp>
-    <label for="TestCheckbox2">Second Checkbox</label>
-    <br>
-    {{ isChecked }}
-    <br>
-    <input type="text" [value]="isChecked" (input)="changeCheckbox()">
+
+    @if(showField){
+    <button class="btn btn-info text-white">
+        Submit
+    </button>
+    }
 </div>
-<hr>
-<div class="container">
-    <app-home 
-    [parentValue]="isChecked"
-    (childEvent)="handleChildEvent($event)"
-    ></app-home>
+
+<div>
+    <ol>
+        <li *ngFor="let city of cities">
+            {{city}}
+        </li>
+    </ol>
+
+    <ol>
+        @for(city of cities;track city){
+        <li> {{ city }}</li>
+        }
+    </ol>
 </div>
-<hr>
-<p class="text-center"></p>
+
+<div>
+    <div [ngSwitch]="staticField">
+        <p *ngSwitchCase="'No'">First Shown</p>
+        <p *ngSwitchCase="'Yes'">Second Shown</p>
+        <p *ngSwitchDefault>Third Shown</p>
+    </div>
+
+    @switch(staticField){
+        @case('No'){
+            <p>First Shown</p>
+        }
+        @case('Yes'){
+            <p>Second Shown</p>
+        }
+        @default{
+            <p>Third Shown</p>
+        }
+    }
+</div>

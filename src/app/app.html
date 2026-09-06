@@ -1,47 +1,20 @@
-<div>
-    <input type="checkbox" [(ngModel)]="showField"><br>
-    <button class="btn btn-info text-white" *ngIf="showField">
-        Submit
-    </button>
-    <hr>
+<h1 class="text-center text-primary">App Component</h1>
 
-    @if(showField){
-    <button class="btn btn-info text-white">
-        Submit
-    </button>
-    }
-</div>
-
-<div>
-    <ol>
-        <li *ngFor="let city of cities">
-            {{city}}
+<ul>
+    <li><a routerLink="">App</a></li>
+    <li><a routerLink="/home" [queryParams]="sampleMessage">Home</a></li>
+    <ul>
+        <li>
+            <a routerLink="/home/dashboard">Home Child</a>
         </li>
-    </ol>
+    </ul>
+    <li><a [routerLink]="['/about', 5, 10]">About</a></li>
+</ul>
 
-    <ol>
-        @for(city of cities;track city){
-        <li> {{ city }}</li>
-        }
-    </ol>
-</div>
+<button (click)="goToHome()">
+    Go to Home
+</button>
 
-<div>
-    <div [ngSwitch]="staticField">
-        <p *ngSwitchCase="'No'">First Shown</p>
-        <p *ngSwitchCase="'Yes'">Second Shown</p>
-        <p *ngSwitchDefault>Third Shown</p>
-    </div>
 
-    @switch(staticField){
-        @case('No'){
-            <p>First Shown</p>
-        }
-        @case('Yes'){
-            <p>Second Shown</p>
-        }
-        @default{
-            <p>Third Shown</p>
-        }
-    }
-</div>
+
+<router-outlet></router-outlet>
